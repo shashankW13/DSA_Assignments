@@ -1,0 +1,282 @@
+<html>
+    <head>
+        <title>Login Form</title>
+        <style>
+            body{
+                margin:0;
+                padding: 0;
+                background: url(https://t3.ftcdn.net/jpg/01/22/71/96/360_F_122719641_V0yw2cAOrfxsON3HeWi2Sf4iVxhv27QO.jpg);
+                background-size: cover;
+                background-position: center;
+                font-family: sans-serif;
+            }
+            .loginbox{
+                width: 320px;
+                height: 420px;
+                background: #000;
+                color: #fff;
+                top: 50%;
+                left:50%;
+                position: absolute;
+                transform: translate(-50%,-50%);
+                box-sizing: border-box;
+                padding: 70px 30px;
+            }
+            .avatar{
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                position: absolute;
+                top: -50px;
+                left: calc(50% - 50px);
+            }
+            h1{
+                margin: 0;
+                padding: 0;
+                text-align: center;
+                font-size: 22px;
+            }
+            .loginbox p{
+                margin: 0;
+                padding: 0;
+                font-weight: bold;
+            }
+            .loginbox input{
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            .loginbox input[type="text"], input[type="password"]{
+                border: none;
+                border-bottom: 1px solid #fff;
+                background: transparent;
+                outline: none;
+                height: 40px;
+                color: #fff;
+                font-size: 16px;
+            }
+            .loginbox input[type="submit"]{
+                border: none;
+                outline: none;
+                height: 40px;
+                background: #fb2525;
+                color: #fff;
+                font-size: 18px;
+                border-radius: 20px;
+            }
+            .loginbox input[type="submit"]:hover{
+                cursor: pointer;
+                background: #ffc107;
+                color: #000;
+            }
+            .loginbox a{
+                text-decoration: none;
+                font-size: 12px;
+                line-height: 20px;
+                color: darkgray;
+            }
+            .loginbox a:hover{
+                color: #ffc107;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="loginbox">
+            <img src="/static/img/avatar.png" class="avatar">
+            <h1>Login Here</h1><br>
+            <form>
+                <p>User Name</p>
+                <input type="text" name="username" placeholder="Enter Username" required>
+                <p>Password</p>
+                <input type="password" name="password" placeholder="Enter Password" minlength="4" required>
+                <input type="submit" value="Login" formmethod="post" formaction="{{ url_for('contractor_login') }}">
+
+                <a href="{{ url_for('contractor_login') }}">Don't have an account?</a>
+            </form>
+        </div>
+    </body>
+</html>
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login form</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"/>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+            crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/20c5629a29.js" crossorigin="anonymous"></script>
+
+
+    <style media="screen">
+      *,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #080710;
+}
+.background{
+    width: 430px;
+    height: 520px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+}
+.background .shape{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    border-radius: 50%;
+}
+.shape:first-child{
+    background: linear-gradient(
+        #1845ad,
+        #23a2f6
+    );
+    left: -80px;
+    top: -80px;
+}
+.shape:last-child{
+    background: linear-gradient(
+        to right,
+        #ff512f,
+        #f09819
+    );
+    right: -30px;
+    bottom: -80px;
+}
+form{
+    height: 520px;
+    width: 400px;
+    background-color: rgba(255,255,255,0.13);
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 50px 35px;
+}
+form *{
+    font-family: 'Poppins',sans-serif;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+form h3{
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+}
+
+label{
+    display: block;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+}
+input{
+    display: block;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255,255,255,0.07);
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+}
+::placeholder{
+    color: #e5e5e5;
+}
+button{
+    margin-top: 30px;
+    width: 100%;
+    background-color: #ffffff;
+    color: #080710;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.error-msg {
+    color: red;
+}
+.msg {
+    margin-top: 450px;
+}
+
+
+</style>
+</head>
+<body>
+<div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+</div>
+
+<div class="d-flex flex-row justify-content-center">
+<form id="subscribeForm" method="POST" action="{{ url_for('contractor_login') }}">
+    <h3>Login Here</h3>
+
+    <label for="username">Username</label>
+    <input type="text" placeholder="Username" id="username" name="username">
+
+    <p class="error-msg" id="nameErrMsg1"></p>
+
+    <label for="password">Password</label>
+    <input type="password" placeholder="Password" id="password" name="password">
+
+    <p class="error-msg" id="nameErrMsg2"></p>
+
+    <button type="submit">Log In</button>
+
+</form>
+<a href="{{ url_for('register') }}">Register</a>
+</div>
+
+<script language = "JavaScript">
+var button = document.querySelector('button');
+button.onclick =
+        function validate() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+           if (username == null || username == "") {
+                alert("Please enter the username.");
+               return false;
+           }
+            if (password == null || password == "") {
+                alert("Please enter the password.");
+               return false;
+           }
+            alert('Login successful');
+
+        }
+
+
+
+
+</script>
+</body>
+</html>
+-->

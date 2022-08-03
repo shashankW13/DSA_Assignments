@@ -1,9 +1,11 @@
 # incomplete
+from collections import Counter
+
 string = 'xyyz'
 str_list = []
 temp_list = []
 str_set = set()
-count = []
+res = False
 
 for x in range(0, len(string)):
     str_set.add(string[x])
@@ -12,21 +14,13 @@ for x in range(0, len(string)):
 for y in str_set:
     temp_list = str_list[:]
     temp_list.remove(y)
-    # if set(temp_list) == str_set:
-    #     print(f'Yes By removing at most one char {y} the frequency is same')
-    #     break
-    count.append(temp_list.count(y))
-    temp_list.clear()
-# print('No It is not possible to make frequency of each character same just by removing at most on character')
-
-ele = count[0]
-for c in range(len(count)):
-    if ele != count[c]:
+    counter = Counter(temp_list)
+    res = len(list(set(list(counter.values())))) == 1
+    if res:
+        print(f'Yes By removing at most one char {y} the frequency is same')
         break
-    elif c == len(count) - 1:
-        print(1)
+    temp_list.clear()
 
-# print(str_set)
-# print(temp_list)
-# print(str_list)
-print(count)
+if not res:
+    print('No It is not possible to make frequency of each character same just by removing at most on character')
+
